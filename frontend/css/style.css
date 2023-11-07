@@ -1,0 +1,12 @@
+.pipa, .x, .kuka {
+    cursor: pointer;
+}
+.elrejt {
+    display: none;
+}
+.valid {
+    color: green;
+}
+.invalid {
+    color: red;
+}
