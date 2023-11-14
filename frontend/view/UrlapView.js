@@ -31,13 +31,13 @@ class UrlapView {
                 console.log('valid az űrlap');
                 //adatgyűjtés űrlapról
                 this.#urlapElemLista.forEach(elem =>{
-                    console.log('itt' +elem);
+                    console.log(elem);
                     this.#urlapAdat[elem.key] = elem.value;
                 })
             } else {
                 console.log('nem valid az űrlap');
             }
-            this.#esemeny("esemeny");
+            this.#esemeny("ujAdat");
         })
     }
 

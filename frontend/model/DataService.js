@@ -21,6 +21,18 @@ class DataService {
         // always executed
       });
   }
+  postData(url, data) {
+    console.log(data);
+    axios
+      .post(url, data)
+      .then((response) => {
+        console.log("RESP", response);
+        location.reload();
+      })
+      .catch((error) => {
+        console.log('hiba', error);
+      })
+  }
 }
 
 export default DataService;
