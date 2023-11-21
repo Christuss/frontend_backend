@@ -42,7 +42,7 @@ class ListaSorView {
     }
 
     #esemenyTrigger(esemenyneve) {
-        const esemenyem = new CustomEvent(esemenyneve, {detail:this.index})
+        const esemenyem = new CustomEvent(esemenyneve, {detail:this.#obj})
         window.dispatchEvent(esemenyem);
     }
 }

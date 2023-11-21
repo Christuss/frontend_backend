@@ -6,17 +6,21 @@ import UrlapView from "../view/UrlapView.js";
 class Controller {
     constructor() {
         this.dataService = new DataService();
-        this.dataService.getData("http://localhost:8000/api/writers", this.megjelenit);
+        this.url = "http://localhost:8000/api/writers";
+        this.dataService.getData(this.url, this.megjelenit);
 
         const URLAPMODEL = new UrlapModel();
         const URLAPVIEW = new UrlapView($('.urlap'), URLAPMODEL.getLeiro());
         window.addEventListener('ujAdat', (event)=> {
             console.log("ott");
             console.log(event.detail);
-            this.dataService.postData("http://localhost:8000/api/writers", {
+            this.dataService.postData(this.url, {
                 nev: event.detail[0].value,
                 szul: event.detail[1].value + "-01-01",
               })
+        })
+        window.addEventListener('torol', (event) => {
+            this.dataService.deleteData(this.url, event.detail.id);
         })
     }
 

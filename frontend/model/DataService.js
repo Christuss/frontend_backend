@@ -33,6 +33,30 @@ class DataService {
         console.log('hiba', error);
       })
   }
+  putData(url, data){
+    console.log(data);
+    console.log(`${url}/${data.id}`);
+    axios
+      .put(`${url}/${data.id}`, data)
+      .then((response) => {
+        console.log("RESP", response);
+      })
+      .catch((error) => {
+        console.log("hiba", error);
+      })
+  }
+  deleteData(url, id) {
+    console.log(`${url}/${id}`);
+    axios
+      .delete(`${url}/${id}`)
+      .then((response) => {
+        console.log("RESP", response);
+        location.reload();
+      })
+      .catch((error) => {
+        console.log("hiba", error);
+      })
+  }
 }
 
 export default DataService;

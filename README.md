@@ -1,2 +1,1 @@
-# további feladatok
-## post, put, delete !!!
+# Backend + frontend
