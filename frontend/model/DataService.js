@@ -40,6 +40,7 @@ class DataService {
       .put(`${url}/${data.id}`, data)
       .then((response) => {
         console.log("RESP", response);
+        location.reload();
       })
       .catch((error) => {
         console.log("hiba", error);

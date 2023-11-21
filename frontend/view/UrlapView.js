@@ -1,3 +1,4 @@
+import ListaSorView from "./ListaSorView.js";
 import NumberUrlapElem from "./NumberUrlapView.js";
 import TextUrlapElem from "./TextUrlapView.js";
 
@@ -16,6 +17,7 @@ class UrlapView {
 
         this.#urlapOsszerak();
         this.submitElem = $("#submit");
+        this.csereElem = $('#csere');
 
         this.submitElem.on("click", (event) => {
             event.preventDefault();
@@ -39,6 +41,28 @@ class UrlapView {
             }
             this.#esemeny("ujAdat");
         })
+        this.csereElem.on("click", (event) => {
+            event.preventDefault();
+
+            this.#urlapElemLista.forEach(elem=>{
+                this.#osszesElemValidE= true;
+                console.log(elem);
+                console.log(elem.valid);
+                this.#osszesElemValidE = this.#osszesElemValidE && elem.valid;
+            });
+
+            if (this.#osszesElemValidE) {
+                console.log('valid az űrlap');
+                //adatgyűjtés űrlapról
+                this.#urlapElemLista.forEach(elem =>{
+                    console.log(elem);
+                    this.#urlapAdat[elem.key] = elem.value;
+                })
+            } else {
+                console.log('nem valid az űrlap');
+            }
+            this.#esemeny("csereAdat");
+        })
     }
 
 
@@ -56,7 +80,9 @@ class UrlapView {
                     break;
             }
         }
-        let txt = `<button class="btn  btn-dark" type="submit" id="submit">Ok</button>`;
+        let txt = `<button class="btn  btn-dark" type="submit" id="submit">Felvitel</button>
+        <button class="btn  btn-dark" type="submit" id="csere">Csere</button>
+        `;
         this.formElem.append(txt);
     }
 

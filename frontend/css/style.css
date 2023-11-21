@@ -10,3 +10,23 @@
 .invalid {
     color: red;
 }
+#csere {
+    display: none;
+}
+.urlap{
+    padding: 20px 30px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    margin: 10px;
+    margin-bottom: 0;
+    background-color: whitesmoke;
+}
+.lista {
+    padding: 20px 30px;
+    border: 1px solid gray;
+    border-top: none;
+    border-radius: 10px;
+    border-top-left-radius:0px;
+    border-top-right-radius:0px;
+    margin: 10px;
+}

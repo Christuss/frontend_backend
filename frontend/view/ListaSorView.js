@@ -11,12 +11,16 @@ class ListaSorView {
         this.xElem.css("display", "none");
         this.keszElem = this.sorElem.children(".pipa");
         this.kukaElem = this.sorElem.children(".kuka");
+        this.csereElem = $("#csere");
+        this.submitElem = $('#submit');
 
         this.keszElem.on('click', () => {
             this.#esemenyTrigger("kesz");
             this.#obj.kesz = true;
             this.sorElem.css("background-color", "lightgreen");
             this.keszElem.css("display", "none");
+            this.csereElem.css("display", "inline");
+            this.submitElem.css('display', 'none');
             this.xElem.css("display", "inline");
         })
         this.xElem.on('click', () => {
@@ -24,6 +28,8 @@ class ListaSorView {
             this.#obj.kesz = false;
             this.sorElem.css("background-color", "white");
             this.keszElem.css("display", "inline");
+            this.csereElem.css("display", "none");
+            this.submitElem.css('display', 'inline');
             this.xElem.css("display", "none");
         })
         this.kukaElem.on('click', () => {
@@ -31,6 +37,7 @@ class ListaSorView {
         })
         
     }
+
     #sor(){
        let s = "<tr>";
       for (const key in this.#obj) {

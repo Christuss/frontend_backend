@@ -22,6 +22,16 @@ class Controller {
         window.addEventListener('torol', (event) => {
             this.dataService.deleteData(this.url, event.detail.id);
         })
+        window.addEventListener('kesz', (eventk) => {
+            window.addEventListener('csereAdat', (event)=> {
+                console.log(event.detail);
+                this.dataService.putData(this.url, {
+                    id: eventk.detail.id,
+                    nev: event.detail[0].value,
+                    szul: event.detail[1].value + "-01-01",
+                  })
+            })
+        })
     }
 
     megjelenit(lista){
